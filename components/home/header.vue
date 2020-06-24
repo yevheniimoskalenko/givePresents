@@ -6,7 +6,7 @@
         В мене є до тебе подарунок, для того щоб його забрати ти повинен вибрати
         квиток і заплатити за нього!
       </p>
-      <el-button>Розпочнемо</el-button>
+      <el-button type="primary" round="">Розпочнемо</el-button>
     </div>
   </header>
 </template>
