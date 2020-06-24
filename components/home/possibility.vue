@@ -1,6 +1,6 @@
 <template>
   <div class="possibility">
-    <div class="possibility__title">
+    <div class="title">
       <h2>Можливости проекту</h2>
       <p>
         Перерахована маленька доля проекту в якому ви можете взяти участь
@@ -57,10 +57,7 @@
     background: rgb(238, 237, 237);
   }
 }
-.possibility__title {
-  text-align: center;
-  padding: 40px 0;
-}
+
 .el-row {
   display: flex;
 }
