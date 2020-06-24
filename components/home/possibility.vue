@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="possibility__content">
-      <el-row :gutter="20">
+      <el-row :gutter="40">
         <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
           <div class="possibility__item">
             <div class="image">

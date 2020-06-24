@@ -3,21 +3,20 @@
     <app-header />
     <app-possibility />
     <app-member />
-    <div class="trophy">
-      <div class="title">
-        <h2>Призи</h2>
-        <p>Актуальні призи які зараз доступні для прийняття участі в ньому</p>
-      </div>
-    </div>
+    <app-trophy />
   </div>
 </template>
 <script>
 import appHeader from '@/components/home/header'
 import appPossibility from '@/components/home/possibility'
 import appMember from '@/components/home/member'
+import appTrophy from '@/components/home/trophy'
 
 export default {
-  components: { appHeader, appPossibility, appMember },
+  components: { appHeader, appPossibility, appMember, appTrophy },
+  data() {
+    return {}
+  },
   head: {
     title: 'Головна сторінка сайту'
   }
