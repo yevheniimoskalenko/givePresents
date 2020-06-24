@@ -1,6 +1,9 @@
 <template>
   <header class="header">
     <div class="header___content">
+      <div class="image">
+        <div class="img"></div>
+      </div>
       <h1>Ку ку давай дружити!</h1>
       <p>
         В мене є до тебе подарунок, для того щоб його забрати ти повинен вибрати
@@ -18,5 +21,16 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgb(238, 237, 237);
+  }
 }
 </style>
