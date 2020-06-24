@@ -1,14 +1,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
+require('dotenv').config()
+
 const app = express()
 mongoose
-  .connect(
-    'mongodb+srv://yevhenii:was123456789was@cluster0-vrxpp.mongodb.net/test',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    }
-  )
+  .connect(process.env.db, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
   .then(() => {
     /* eslint-disable no-console */
     console.log('connect has started...')
