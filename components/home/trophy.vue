@@ -6,9 +6,9 @@
     </div>
     <div class="trophy__content">
       <el-row :gutter="30">
-        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8"
-          ><el-card shadow="hover" :body-style="{ padding: '0px' }"
-            ><div class="tropty__item">
+        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+          <el-card shadow="hover" :body-style="{ padding: '0px' }">
+            <div class="tropty__item">
               <div class="trophy__image">
                 <img src="@/static/presents/airpods.png" />
               </div>
@@ -23,16 +23,16 @@
                   icon="el-icon-right"
                   class="link"
                   circle
+                  @click="openTrophy('32321')"
                 ></el-button>
-
                 <small>{{ time }}</small>
               </div>
-            </div></el-card
-          ></el-col
-        >
-        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8"
-          ><el-card shadow="hover" :body-style="{ padding: '0px' }"
-            ><div class="tropty__item">
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+          <el-card shadow="hover" :body-style="{ padding: '0px' }">
+            <div class="tropty__item">
               <div class="trophy__image">
                 <img src="@/static/presents/macbook.png" />
               </div>
@@ -47,15 +47,16 @@
                   class="link"
                   icon="el-icon-right"
                   circle
+                  @click="openTrophy('323214')"
                 ></el-button>
                 <small>{{ time }}</small>
               </div>
-            </div></el-card
-          ></el-col
-        >
-        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8"
-          ><el-card shadow="hover" :body-style="{ padding: '0px' }"
-            ><div class="tropty__item">
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+          <el-card shadow="hover" :body-style="{ padding: '0px' }">
+            <div class="tropty__item">
               <div class="trophy__image">
                 <img src="@/static/presents/iphone11.png" />
               </div>
@@ -70,12 +71,13 @@
                   class="link"
                   icon="el-icon-right"
                   circle
+                  @click="openTrophy('323223')"
                 ></el-button>
                 <small>{{ time }}</small>
               </div>
-            </div></el-card
-          ></el-col
-        >
+            </div>
+          </el-card>
+        </el-col>
       </el-row>
     </div>
   </div>
@@ -85,6 +87,11 @@ export default {
   data() {
     return {
       time: new Date()
+    }
+  },
+  methods: {
+    openTrophy(id) {
+      this.$router.push(`/order/${id}`)
     }
   }
 }

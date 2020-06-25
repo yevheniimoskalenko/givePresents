@@ -5,6 +5,7 @@
     <app-member />
     <app-trophy />
     <app-reviews />
+    <app-footer />
   </div>
 </template>
 <script>
@@ -13,9 +14,17 @@ import appPossibility from '@/components/home/possibility'
 import appMember from '@/components/home/member'
 import appTrophy from '@/components/home/trophy'
 import appReviews from '@/components/home/reviews'
+import appFooter from '@/components/home/footer'
 
 export default {
-  components: { appHeader, appPossibility, appMember, appTrophy, appReviews },
+  components: {
+    appHeader,
+    appPossibility,
+    appMember,
+    appTrophy,
+    appReviews,
+    appFooter
+  },
   data() {
     return {}
   },
