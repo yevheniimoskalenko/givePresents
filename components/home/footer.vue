@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="company">
-      <span>2020 Все права защищены.</span>
+      <span>2020 Всі права захищені.</span>
     </div>
   </div>
 </template>

@@ -9,19 +9,31 @@
         <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
           <div class="member__item">
             <h3>Учасників:</h3>
-            <span>1 430</span>
+            <span>{{ member.users }}</span>
           </div>
         </el-col>
         <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
           <div class="member__item">
             <h3>Переможці:</h3>
-            <span>1</span>
+            <span>{{ member.winners }}</span>
           </div>
         </el-col>
       </el-row>
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      member: {
+        users: 1400,
+        winners: 12
+      }
+    }
+  }
+}
+</script>
 <style lang="scss" scoped>
 .el-row {
   display: flex;

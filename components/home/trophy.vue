@@ -6,17 +6,24 @@
     </div>
     <div class="trophy__content">
       <el-row :gutter="30">
-        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+        <el-col
+          v-for="(order, index) in orders"
+          :key="index"
+          :xs="8"
+          :sm="8"
+          :md="8"
+          :lg="8"
+          :xl="8"
+        >
           <el-card shadow="hover" :body-style="{ padding: '0px' }">
             <div class="tropty__item">
               <div class="trophy__image">
-                <img src="@/static/presents/airpods.png" />
+                <el-image :src="order.image" lazy></el-image>
               </div>
               <div class="trophy_main">
-                <h3>airpods</h3>
+                <h3>{{ order.title }}</h3>
                 <p>
-                  AirPods — это звук на весь день, легко и просто. У AirPods Pro
-                  есть активное шумоподавление. Выбирайте свои.
+                  {{ order.description }}
                 </p>
                 <el-button
                   type="primary"
@@ -25,55 +32,7 @@
                   circle
                   @click="openTrophy('32321')"
                 ></el-button>
-                <small>{{ time }}</small>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
-          <el-card shadow="hover" :body-style="{ padding: '0px' }">
-            <div class="tropty__item">
-              <div class="trophy__image">
-                <img src="@/static/presents/macbook.png" />
-              </div>
-              <div class="trophy_main">
-                <h3>airpods</h3>
-                <p>
-                  AirPods — это звук на весь день, легко и просто. У AirPods Pro
-                  есть активное шумоподавление. Выбирайте свои.
-                </p>
-                <el-button
-                  type="primary"
-                  class="link"
-                  icon="el-icon-right"
-                  circle
-                  @click="openTrophy('323214')"
-                ></el-button>
-                <small>{{ time }}</small>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
-          <el-card shadow="hover" :body-style="{ padding: '0px' }">
-            <div class="tropty__item">
-              <div class="trophy__image">
-                <img src="@/static/presents/iphone11.png" />
-              </div>
-              <div class="trophy_main clearfix">
-                <h3>airpods</h3>
-                <p>
-                  AirPods — это звук на весь день, легко и просто. У AirPods Pro
-                  есть активное шумоподавление. Выбирайте свои.
-                </p>
-                <el-button
-                  type="primary"
-                  class="link"
-                  icon="el-icon-right"
-                  circle
-                  @click="openTrophy('323223')"
-                ></el-button>
-                <small>{{ time }}</small>
+                <small>{{ order.time }}</small>
               </div>
             </div>
           </el-card>
@@ -86,7 +45,32 @@
 export default {
   data() {
     return {
-      time: new Date()
+      orders: [
+        {
+          id: 1,
+          image: '/static/presents/airpods.png',
+          title: 'airpods',
+          description:
+            'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
+          time: new Date()
+        },
+        {
+          id: 2,
+          image: '/static/presents/macbook.png',
+          title: 'airpods',
+          description:
+            'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
+          time: new Date()
+        },
+        {
+          id: 3,
+          image: '/static/presents/iphone11.png',
+          title: 'iphone 11',
+          description:
+            'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
+          time: new Date()
+        }
+      ]
     }
   },
   methods: {
