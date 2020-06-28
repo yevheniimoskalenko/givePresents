@@ -36,7 +36,7 @@
                   show-word-limit
                 ></el-input>
               </el-form-item>
-              <el-form-item>
+              <el-form-item prop="rate">
                 <el-rate v-model="form.rate"></el-rate>
               </el-form-item>
               <el-form-item>
@@ -72,7 +72,7 @@ export default {
       loading: false,
       form: {
         message: '',
-        rate: null
+        rate: 1
       },
       user: {
         fullName: 'Yevhenii Moskalenko',
@@ -80,15 +80,18 @@ export default {
           'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'
       },
       rules: {
-        message: [{ required: true, message: 'Відгук повинет бути заповнений' }]
+        message: [
+          { required: true, message: 'Відгук повинет бути заповнений' }
+        ],
+        rate: [{ required: true, message: 'Оцініть сайт' }]
       }
     }
   },
   methods: {
     sendReview() {
       this.$refs.form.validate((valid) => {
-        this.loading = true
         if (valid) {
+          this.loading = true
           try {
             const DataForm = {
               id: 1,
@@ -101,14 +104,13 @@ export default {
               message: 'Ваш відгук відправлений на модерацію.',
               type: 'success'
             })
-            this.loading = false
-
             this.form.message = ''
           } catch (e) {
             this.$message({
               message: 'Warning, this is a warning message.',
               type: 'warning'
             })
+          } finally {
             this.loading = false
           }
         }
