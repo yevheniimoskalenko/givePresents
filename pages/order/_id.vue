@@ -7,24 +7,27 @@
     <div class="presents-image">
       <el-image :src="presents.image" fit="scale-down"></el-image>
     </div>
-    <div class="tikets">
-      <div v-for="(tiket, index) in 200" :key="index" class="tiket">
+    <div class="tickets">
+      <div v-for="(tiket, index) in 200" :key="index" class="ticket">
         <el-button plain>{{ tiket }}</el-button>
       </div>
     </div>
     <div class="presents-form">
       <el-form ref="form" :model="data" :rules="rules">
-        <el-form-item label="Прізвище ім'я по-батькові">
-          <el-input></el-input>
+        <el-form-item label="Прізвище ім'я по-батькові" prop="fullName">
+          <el-input v-model="data.fullName"></el-input>
         </el-form-item>
-        <el-form-item label="Місце проживання">
-          <el-input></el-input>
+        <el-form-item label="Місце проживання" prop="residence">
+          <el-input v-model="data.residence"></el-input>
         </el-form-item>
-        <el-form-item label="Номер телефону">
-          <el-input></el-input>
+        <el-form-item label="Номер телефону" prop="phoneNumber">
+          <el-input v-model="data.phoneNumber"></el-input>
         </el-form-item>
         <el-form-item label="Квиток">
-          <el-input></el-input>
+          <el-input v-model="data.tikets" disabled=""></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" round="">Придбати</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -41,8 +44,24 @@ export default {
         description:
           'AirPods настраиваются в одно касание. Автоматически включаются и устанавливают соединение. Пользоваться ими невероятно легко. Они оснащены специальными сенсорами, поэтому когда вы снимаете наушники, воспроизведение останавливается. При этом AirPods великолепно взаимодействуют как с iPhone, так и с Apple Watch, iPad и Mac.'
       },
-      data: {},
-      rules: {}
+      data: { fullName: '', residence: '', phoneNumber: '' },
+      rules: {
+        fullName: [
+          {
+            required: true
+          }
+        ],
+        residence: [
+          {
+            required: true
+          }
+        ],
+        phoneNumber: [
+          {
+            required: true
+          }
+        ]
+      }
     }
   },
   head() {
@@ -53,13 +72,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.tikets {
+.tickets {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
 }
-.tiket {
+.ticket {
   padding: 10px;
 }
 .presents-image {
