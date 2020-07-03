@@ -63,6 +63,12 @@ module.exports = {
           'https://graph.facebook.com/v2.12/me?fields=about,name,picture{url},email,birthday',
         scope: ['public_profile', 'email', 'user_birthday']
       }
+    },
+    redirect: {
+      login: '/',
+      logout: '/',
+      callback: '/reviews',
+      home: '/'
     }
   },
   /*

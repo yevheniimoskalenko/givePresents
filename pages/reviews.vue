@@ -10,11 +10,10 @@
     <div class="reviews__content">
       <el-row>
         <el-col>
-          <div v-if="!$auth.$state" class="auth">
-            <el-tag type="warning"
-              >Для того щоб залишити відгук потрібо авторизуватися через
-              facebook</el-tag
-            >
+          <div v-if="$auth.$state.user === null" class="auth">
+            <el-tag type="warning">
+              Для того щоб залишити відгук потрібо авторизуватися через facebook
+            </el-tag>
             <el-button
               type="primary"
               class="auth-btn"
