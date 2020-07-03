@@ -2,14 +2,15 @@ const axios = require('axios')
 const Reviews = require('../model/reviews.model')
 require('dotenv').config()
 module.exports.create = async (req, res) => {
-  const { fullName, avatar, rate, text, email } = req.body
+  const { fullName, avatar, rate, text, email, id } = req.body
 
   const reviews = new Reviews({
     fullName,
     email,
     avatar,
     rate,
-    text
+    text,
+    userId: id
   })
   await reviews.save()
 }

@@ -25,6 +25,10 @@ const reviews = new Schema(
     date: {
       type: Date,
       default: Date.now
+    },
+    userId: {
+      type: Number,
+      required: true
     }
   },
   {
