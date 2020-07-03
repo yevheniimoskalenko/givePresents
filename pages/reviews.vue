@@ -10,20 +10,27 @@
     <div class="reviews__content">
       <el-row>
         <el-col>
-          <div v-if="!auth" class="auth">
+          <div v-if="!$auth.$state" class="auth">
             <el-tag type="warning"
               >Для того щоб залишити відгук потрібо авторизуватися через
               facebook</el-tag
             >
-            <el-button type="primary" class="auth-btn" round
+            <el-button
+              type="primary"
+              class="auth-btn"
+              round
+              @click="authFacebook"
               >Авторизуватися</el-button
             >
           </div>
           <div v-else class="reviews__message">
             <div class="user">
-              <el-avatar :src="user.avatar" :size="50"></el-avatar>
+              <el-avatar
+                :src="$auth.$state.user.picture.data.url"
+                :size="50"
+              ></el-avatar>
               <div class="full-name">
-                <span>{{ user.fullName }}</span>
+                <span>{{ $auth.$state.user.name }}</span>
               </div>
             </div>
             <el-form ref="form" :model="form" :rules="rules">
@@ -51,6 +58,7 @@
               <el-button
                 type="primary"
                 round
+                :disabled="!verefy"
                 :loading="loading"
                 @click="sendReview"
                 >Відправити</el-button
@@ -68,16 +76,11 @@ export default {
   components: { VueRecaptcha },
   data() {
     return {
-      auth: true,
+      verefy: false,
       loading: false,
       form: {
         message: '',
         rate: 1
-      },
-      user: {
-        fullName: 'Yevhenii Moskalenko',
-        avatar:
-          'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'
       },
       rules: {
         message: [
@@ -88,16 +91,21 @@ export default {
     }
   },
   methods: {
+    authFacebook() {
+      this.$auth.loginWith('facebook')
+    },
     sendReview() {
       this.$refs.form.validate((valid) => {
-        if (valid) {
+        if (valid && this.verefy === true) {
           this.loading = true
           try {
             const DataForm = {
-              id: 1,
-              fullName: 'Yevhenii Moskalenko',
-              messaage: this.form.messaage,
-              rate: this.form.rate
+              id: this.$auth.$state.user.id,
+              fullName: this.$auth.$state.user.name,
+              avatar: this.$auth.$state.user.picture.data.url,
+              text: this.form.message,
+              rate: this.form.rate,
+              email: this.$auth.$state.user.email
             }
             this.$store.dispatch('reviews/addReviews', DataForm)
             this.$message({
@@ -116,7 +124,11 @@ export default {
         }
       })
     },
-    onCaptchaVerified(recaptchaToken) {},
+    async onCaptchaVerified(recaptchaToken) {
+      const token = { token: recaptchaToken }
+      const verefy = await this.$store.dispatch('reviews/verefy', token)
+      this.verefy = verefy.success
+    },
     onCaptchaExpired() {
       this.$refs.recaptcha.reset()
     }

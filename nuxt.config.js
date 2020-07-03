@@ -52,13 +52,26 @@ module.exports = {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+  auth: {
+    strategies: {
+      facebook: {
+        client_id: '228457404969225',
+        userinfo_endpoint:
+          'https://graph.facebook.com/v2.12/me?fields=about,name,picture{url},email,birthday',
+        scope: ['public_profile', 'email', 'user_birthday']
+      }
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxyHeaders: false
+  },
   /*
    ** Build configuration
    */
