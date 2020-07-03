@@ -4,6 +4,7 @@
       <h2>Створити приз</h2>
       <p>Товар для розіграшу призів, на сайті</p>
     </div>
+
     <el-row type="flex" justify="center">
       <el-col :span="12" :xs="24">
         <el-form ref="form" :model="form" :rules="rules">
@@ -20,7 +21,7 @@
             <el-upload
               ref="upload"
               class="upload-demo"
-              action="http://localhost:3000/api/cloudinery"
+              action="http://localhost:3000/api/order/foto"
               :auto-upload="false"
               :on-success="hendleSuccess"
             >
@@ -77,7 +78,7 @@ export default {
             tickets: this.form.tickets,
             uload: this.fileUrl
           }
-          console.log(form)
+          this.$store.dispatch('admin/addOrder', form)
           this.$refs.upload.clearFiles()
         }
       })
