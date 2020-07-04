@@ -17,7 +17,7 @@
           <el-form-item label="Кількість квитків" prop="tickets">
             <el-input v-model="form.tickets"></el-input>
           </el-form-item>
-          <el-form-item label="Фото приза" prop="uploadFile">
+          <el-form-item label="Фото приза">
             <el-upload
               ref="upload"
               class="upload-demo"
@@ -59,7 +59,7 @@ export default {
       uploadFile: [],
       form: { title: '', description: '', tickets: '' },
       rules: {
-        uploadFile: [
+        fileUrl: [
           { required: true, message: 'Завантажте зображення на приз.' }
         ],
         description: [{ required: true, message: 'Опешіть приз.' }],
@@ -80,6 +80,10 @@ export default {
           }
           this.$store.dispatch('admin/addOrder', form)
           this.$refs.upload.clearFiles()
+          this.form.title = ''
+          this.form.description = ''
+          this.form.tickets = ''
+          this.fileUrl = ''
         }
       })
     },
