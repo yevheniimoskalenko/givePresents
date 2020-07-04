@@ -4,7 +4,7 @@
     <app-possibility />
     <app-member />
     <app-trophy :orders="order" />
-    <app-reviews />
+    <app-reviews :reviews="reviews" />
     <app-footer />
   </div>
 </template>
@@ -26,8 +26,8 @@ export default {
     appFooter
   },
   async asyncData({ store }) {
-    const order = await store.dispatch('fetchAll')
-    return { order }
+    const data = await store.dispatch('fetchAll')
+    return { order: data.order, reviews: data.reviews }
   },
   data() {
     return {}

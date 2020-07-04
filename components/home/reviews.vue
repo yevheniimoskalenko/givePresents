@@ -24,7 +24,7 @@
                 </div>
                 <div class="reviews__message">
                   <span>{{ review.fullName }}</span>
-                  <p>{{ review.message }}</p>
+                  <p>{{ review.text }}</p>
                   <el-rate v-model="review.rate" disabled text-color="#ff9900">
                   </el-rate>
                 </div>
@@ -41,32 +41,14 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      reviews: [
-        {
-          avatar:
-            'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
-          fullName: 'Zoriana Derenko',
-          message: 'Сайт просо шлак, видаліть його із мого життя, це фіаско',
-          rate: 1
-        },
-        {
-          avatar:
-            'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
-          fullName: 'Yevhenii Moskalenko',
-          message: 'Сайт просто пушка',
-          rate: 4
-        },
-        {
-          avatar:
-            'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
-          fullName: 'Viktoria Kasap',
-          message: 'Всім раджу спробувати, яка у кого вдача',
-          rate: 3
-        }
-      ]
+  props: {
+    reviews: {
+      type: Array,
+      required: true
     }
+  },
+  data() {
+    return {}
   }
 }
 </script>

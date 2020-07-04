@@ -1,5 +1,9 @@
 const Order = require('../model/order.model')
+const Reviews = require('../model/reviews.model')
 module.exports = async (req, res) => {
   const order = await Order.find({ isWork: true })
-  return res.json(order)
+  const reviews = await Reviews.find()
+    .sort({ date: -1 })
+    .limit(3)
+  return res.json({ order, reviews })
 }

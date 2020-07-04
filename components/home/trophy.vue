@@ -30,7 +30,7 @@
                   icon="el-icon-right"
                   class="link"
                   circle
-                  @click="openTrophy('32321')"
+                  @click="openTrophy(order._id)"
                 ></el-button>
                 <small>{{ order.time }}</small>
               </div>
