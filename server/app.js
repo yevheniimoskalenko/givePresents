@@ -4,6 +4,7 @@ const upload = require('express-fileupload')
 const tickets = require('./routers/tickets.routes')
 const reviews = require('./routers/reviews.routes')
 const order = require('./routers/order.routes')
+const all = require('./routers/all.routes')
 require('dotenv').config()
 const app = express()
 mongoose
@@ -23,4 +24,5 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/api/tickets', tickets)
 app.use('/api/reviews', reviews)
 app.use('/api/order', order)
+app.use('/api/', all)
 module.exports = app

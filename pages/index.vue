@@ -3,7 +3,7 @@
     <app-header />
     <app-possibility />
     <app-member />
-    <app-trophy />
+    <app-trophy :orders="order" />
     <app-reviews />
     <app-footer />
   </div>
@@ -24,6 +24,10 @@ export default {
     appTrophy,
     appReviews,
     appFooter
+  },
+  async asyncData({ store }) {
+    const order = await store.dispatch('fetchAll')
+    return { order }
   },
   data() {
     return {}

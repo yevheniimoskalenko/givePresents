@@ -18,7 +18,7 @@
           <el-card shadow="hover" :body-style="{ padding: '0px' }">
             <div class="tropty__item">
               <div class="trophy__image">
-                <el-image :src="order.image" lazy></el-image>
+                <el-image :src="order.urlImages" lazy></el-image>
               </div>
               <div class="trophy_main">
                 <h3>{{ order.title }}</h3>
@@ -43,34 +43,40 @@
 </template>
 <script>
 export default {
+  props: {
+    orders: {
+      type: Array,
+      required: true
+    }
+  },
   data() {
     return {
-      orders: [
-        {
-          id: 1,
-          image: '/static/presents/airpods.png',
-          title: 'airpods',
-          description:
-            'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
-          time: new Date()
-        },
-        {
-          id: 2,
-          image: '/static/presents/macbook.png',
-          title: 'airpods',
-          description:
-            'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
-          time: new Date()
-        },
-        {
-          id: 3,
-          image: '/static/presents/iphone11.png',
-          title: 'iphone 11',
-          description:
-            'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
-          time: new Date()
-        }
-      ]
+      // orders: [
+      //   {
+      //     id: 1,
+      //     image: '/static/presents/airpods.png',
+      //     title: 'airpods',
+      //     description:
+      //       'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
+      //     time: new Date()
+      //   },
+      //   {
+      //     id: 2,
+      //     image: '/static/presents/macbook.png',
+      //     title: 'airpods',
+      //     description:
+      //       'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
+      //     time: new Date()
+      //   },
+      //   {
+      //     id: 3,
+      //     image: '/static/presents/iphone11.png',
+      //     title: 'iphone 11',
+      //     description:
+      //       'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
+      //     time: new Date()
+      //   }
+      // ]
     }
   },
   methods: {
