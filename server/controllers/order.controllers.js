@@ -33,3 +33,14 @@ module.exports.foto = async (req, res) => {
     return res.json(result)
   })
 }
+module.exports.fetchId = async (req, res) => {
+  const { id } = req.params
+  try {
+    const order = await Order.findById(id)
+    const tickets = await Tickets.find({ id_order: id })
+
+    return res.json({ order, tickets })
+  } catch (e) {
+    return res.json(e)
+  }
+}

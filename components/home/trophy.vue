@@ -22,9 +22,7 @@
               </div>
               <div class="trophy_main">
                 <h3>{{ order.title }}</h3>
-                <p>
-                  {{ order.description }}
-                </p>
+                <p>{{ order.description }}</p>
                 <el-button
                   type="primary"
                   icon="el-icon-right"
@@ -50,34 +48,7 @@ export default {
     }
   },
   data() {
-    return {
-      // orders: [
-      //   {
-      //     id: 1,
-      //     image: '/static/presents/airpods.png',
-      //     title: 'airpods',
-      //     description:
-      //       'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
-      //     time: new Date()
-      //   },
-      //   {
-      //     id: 2,
-      //     image: '/static/presents/macbook.png',
-      //     title: 'airpods',
-      //     description:
-      //       'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
-      //     time: new Date()
-      //   },
-      //   {
-      //     id: 3,
-      //     image: '/static/presents/iphone11.png',
-      //     title: 'iphone 11',
-      //     description:
-      //       'AirPods — это звук на весь день, легко и просто. У AirPods Pro есть активное шумоподавление. Выбирайте свои.',
-      //     time: new Date()
-      //   }
-      // ]
-    }
+    return {}
   },
   methods: {
     openTrophy(id) {
@@ -103,7 +74,7 @@ export default {
   align-items: center;
   img {
     width: auto;
-    max-width: 290px;
+    max-width: 200px;
     background-size: cover;
   }
 }

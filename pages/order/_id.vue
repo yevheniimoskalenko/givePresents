@@ -7,13 +7,18 @@
           <p>{{ presents.description }}</p>
         </div>
         <div class="presents-image">
-          <el-image :src="presents.image" fit="scale-down"></el-image>
+          <el-image :src="presents.urlImages" fit="scale-down"></el-image>
         </div>
         <div class="tickets">
-          <div v-for="(tiket, index) in tickets" :key="index" class="ticket">
-            <el-button plain round @click="ticket(tiket)">{{
-              tiket
-            }}</el-button>
+          <div v-for="tiket in tickets" :key="tiket._id" class="ticket">
+            <el-button
+              plain
+              round
+              :disabled="ticket.isBuy"
+              @click="ticket(tiket.numberTickets)"
+            >
+              {{ tiket.numberTickets }}
+            </el-button>
           </div>
         </div>
         <div class="presents-form">
@@ -110,19 +115,20 @@
 <script>
 import { mask } from 'vue-the-mask'
 export default {
+  validate({ params }) {
+    return Boolean(params.id)
+  },
   directives: { mask },
+  async asyncData({ params, store }) {
+    try {
+      const presents = await store.dispatch('order/fetchId', params)
+      return { presents: presents.order, tickets: presents.tickets }
+    } catch (e) {}
+  },
   data() {
     return {
       loading: false,
-      tickets: 100,
       dialogRules: false,
-      presents: {
-        title: 'airpods',
-        image:
-          'https://avic.ua/assets/cache/products/216120/apple-airpods-with-charging-case-mv7n2-1-prod_md.jpg',
-        description:
-          'AirPods настраиваются в одно касание. Автоматически включаются и устанавливают соединение. Пользоваться ими невероятно легко. Они оснащены специальными сенсорами, поэтому когда вы снимаете наушники, воспроизведение останавливается. При этом AirPods великолепно взаимодействуют как с iPhone, так и с Apple Watch, iPad и Mac.'
-      },
       data: {
         fullName: '',
         residence: '',
