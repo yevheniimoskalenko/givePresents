@@ -14,6 +14,23 @@ const pay = new Schema(
       type: String,
       required: true
     },
+    id_order: {
+      type: Schema.Types.ObjectId,
+      ref: 'order'
+    },
+    residence: { type: String, required: true },
+    payment_id: {
+      type: Number,
+      required: true
+    },
+    departament: {
+      type: Number,
+      required: true
+    },
+    ticket: {
+      type: Number,
+      required: true
+    },
     date: {
       type: Date,
       default: Date.now

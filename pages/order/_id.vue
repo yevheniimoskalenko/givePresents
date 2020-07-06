@@ -2,7 +2,7 @@
   <div class="presents">
     <el-row type="flex" justify="center">
       <el-col :span="12" :xs="24" :sm="24" :md="24" :lg="17" :xl="12">
-        <div class="title">
+        <div class="dtitle">
           <h2>{{ presents.title }}</h2>
           <p>{{ presents.description }}</p>
         </div>
@@ -14,8 +14,8 @@
             <el-button
               plain
               round
-              :disabled="ticket.isBuy"
-              @click="ticket(tiket.numberTickets)"
+              :disabled="tiket.isBuy"
+              @click="ticket(tiket.numberTickets, tiket._id)"
             >
               {{ tiket.numberTickets }}
             </el-button>
@@ -97,6 +97,7 @@
               >
             </el-form-item>
           </el-form>
+          <div v-html="liqpayButton"></div>
         </div>
         <el-dialog title="Правила сайту" :visible.sync="dialogRules">
           <div class="dialog">
@@ -127,6 +128,7 @@ export default {
   },
   data() {
     return {
+      liqpayButton: null,
       loading: false,
       dialogRules: false,
       data: {
@@ -136,7 +138,8 @@ export default {
         departament: '',
         email: '',
         success_rules: [],
-        tickets: null
+        tickets: null,
+        idTickets: null
       },
       rules: {
         fullName: [
@@ -161,6 +164,10 @@ export default {
           {
             required: true,
             message: 'Заповніть поле із електроною поштою'
+          },
+          {
+            type: 'email',
+            message: 'Введіть коректну електроний адрес'
           }
         ],
         success_rules: [
@@ -190,9 +197,16 @@ export default {
               residence: this.data.residence,
               phoneNumber: this.data.phoneNumber,
               departament: this.data.departament,
-              ticket: this.data.tickets
+              ticket: this.data.tickets,
+              id: this.$route.params.id,
+              idTickets: this.data.idTickets,
+              title: this.presents.title
             }
-            await this.$store.dispatch('ticket/buyTicket', formDate)
+            const html = await this.$store.dispatch(
+              'ticket/buyTicket',
+              formDate
+            )
+            this.liqpayButton = html
           } catch (e) {}
         } else {
           this.$message({
@@ -202,8 +216,9 @@ export default {
         }
       })
     },
-    ticket(item) {
+    ticket(item, id) {
       this.data.tickets = item
+      this.data.idTickets = id
     }
   },
   head() {
