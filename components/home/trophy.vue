@@ -18,7 +18,7 @@
           <el-card shadow="hover" :body-style="{ padding: '0px' }">
             <div class="tropty__item">
               <div class="trophy__image">
-                <el-image :src="order.urlImages" lazy></el-image>
+                <el-image :src="order.urlImages" lazy class="image"></el-image>
               </div>
               <div class="trophy_main">
                 <h3>{{ order.title }}</h3>
@@ -30,7 +30,9 @@
                   circle
                   @click="openTrophy(order._id)"
                 ></el-button>
-                <small>{{ order.time }}</small>
+                <small>{{
+                  order.date | moment('dddd, MMMM Do YYYY, h:mm:ss a')
+                }}</small>
               </div>
             </div>
           </el-card>
@@ -65,6 +67,7 @@ export default {
 .el-row {
   display: flex;
 }
+
 .trophy__image {
   width: 100%;
   display: block;
@@ -72,11 +75,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  img {
-    width: auto;
-    max-width: 200px;
-    background-size: cover;
-  }
 }
 .trophy_main {
   small {
@@ -101,5 +99,9 @@ export default {
   .clearfix:after {
     clear: both;
   }
+}
+.el-image__inner {
+  display: flex;
+  justify-content: center;
 }
 </style>

@@ -2,6 +2,7 @@ const fs = require('fs')
 const cloudinary = require('cloudinary').v2
 const Order = require('../model/order.model')
 const Tickets = require('../model/tickets.model')
+const Pay = require('../model/pay.model')
 const list = require('./module/tickets')
 require('dotenv').config()
 module.exports.create = async (req, res) => {
@@ -37,9 +38,33 @@ module.exports.fetchId = async (req, res) => {
   const { id } = req.params
   try {
     const order = await Order.findById(id)
-    const tickets = await Tickets.find({ id_order: id })
+    const tickets = await Tickets.find({ id_order: id }).sort({
+      numberTickets: 1
+    })
 
     return res.json({ order, tickets })
+  } catch (e) {
+    return res.json(e)
+  }
+}
+
+module.exports.findUser = async (req, res) => {
+  const { user } = req.body
+  try {
+    const candidat = await Pay.find(
+      {
+        fullName: { $regex: user, $options: 'i' }
+      },
+      {
+        amount: 0,
+        id_order: 0,
+        departament: 0,
+        phoneNumber: 0,
+        residence: 0,
+        payment_id: 0
+      }
+    )
+    return res.json(candidat)
   } catch (e) {
     return res.json(e)
   }

@@ -9,5 +9,14 @@ export const actions = {
     } catch (e) {
       commit('setStatus', e, { root: true })
     }
+  },
+
+  async findUser({ commit }, payload) {
+    try {
+      const user = await this.$axios.$post('api/order/findUser', payload)
+      commit('setUser', user, { root: true })
+    } catch (e) {
+      console.log(e)
+    }
   }
 }
