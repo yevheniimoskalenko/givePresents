@@ -51,20 +51,26 @@ module.exports.fetchId = async (req, res) => {
 module.exports.findUser = async (req, res) => {
   const { user } = req.body
   try {
-    const candidat = await Pay.find(
+    await Pay.find(
       {
         fullName: { $regex: user, $options: 'i' }
       },
       {
         amount: 0,
-        id_order: 0,
         departament: 0,
         phoneNumber: 0,
         residence: 0,
-        payment_id: 0
+        payment_id: 0,
+        isWork: 0
       }
     )
-    return res.json(candidat)
+      .populate('id_order', 'title')
+      .exec((error, post) => {
+        if (error) {
+          console.log(error)
+        }
+        return res.json(post)
+      })
   } catch (e) {
     return res.json(e)
   }

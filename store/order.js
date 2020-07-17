@@ -1,6 +1,13 @@
-export const state = () => ({})
-export const getters = {}
-export const mutations = {}
+export const state = () => ({ user: [] })
+
+export const getters = {
+  getuser: (state) => state.user
+}
+export const mutations = {
+  setUser(state, payload) {
+    state.user = payload
+  }
+}
 export const actions = {
   async fetchId({ commit }, payload) {
     try {
@@ -14,7 +21,7 @@ export const actions = {
   async findUser({ commit }, payload) {
     try {
       const user = await this.$axios.$post('api/order/findUser', payload)
-      commit('setUser', user, { root: true })
+      commit('setUser', user)
     } catch (e) {
       console.log(e)
     }

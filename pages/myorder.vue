@@ -20,6 +20,18 @@ f<template>
               >
             </el-col>
           </el-form>
+          <el-table :data="giveUser" style="width: 100%">
+            <el-table-column
+              prop="id_order.title"
+              label="Товар"
+            ></el-table-column>
+            <el-table-column prop="fullName" label="Покупець"></el-table-column>
+            <el-table-column
+              prop="ticket"
+              label="Номер квитка"
+            ></el-table-column>
+            <el-table-column prop="date" label="Дата"></el-table-column>
+          </el-table>
           {{ giveUser }}
         </el-row>
       </el-col>
@@ -38,17 +50,19 @@ export default {
   },
   computed: {
     giveUser() {
-      return this.$store.getters.getuser
+      return this.$store.getters['order/getuser']
     }
   },
   methods: {
     findUser() {
-      this.$refs.form.validate((valid) => {
+      this.$refs.form.validate(async (valid) => {
+        this.loading = true
         if (valid) {
           const form = {
             user: this.controlers.user
           }
-          this.$store.dispatch('order/findUser', form)
+          await this.$store.dispatch('order/findUser', form)
+          this.loading = false
         }
       })
     }

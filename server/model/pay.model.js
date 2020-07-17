@@ -16,7 +16,7 @@ const pay = new Schema(
     },
     id_order: {
       type: Schema.Types.ObjectId,
-      ref: 'order'
+      ref: 'Order'
     },
     residence: { type: String, required: true },
     payment_id: {
