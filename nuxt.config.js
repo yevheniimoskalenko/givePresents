@@ -55,6 +55,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/auth'
   ],
+
   auth: {
     strategies: {
       facebook: {
@@ -62,13 +63,27 @@ module.exports = {
         userinfo_endpoint:
           'https://graph.facebook.com/v2.12/me?fields=about,name,picture{url},email,birthday',
         scope: ['public_profile', 'email', 'user_birthday']
+      },
+      local: {
+        endpoints: {
+          login: {
+            url: '/api/admin/auth',
+            method: 'post',
+            propertyName: 'token'
+          },
+          logout: { url: '/api/admin/logout', method: 'post' },
+          user: { url: '/api/admin/user', method: 'get', propertyName: 'user' }
+        },
+        tokenRequired: true,
+        tokenType: 'bearer',
+        autoFetchUser: true
       }
     },
     redirect: {
-      login: '/',
-      logout: '/',
-      callback: '/reviews',
-      home: '/'
+      login: '/auth/login',
+      logout: '/auth/login',
+      user: '/profile',
+      callback: '/'
     }
   },
   /*

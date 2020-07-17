@@ -1,12 +1,12 @@
-* {
-  font-family: "Montserrat", sans-serif;
-}
+@import "./reset.css";
 
-html,
-body {
+html {
   box-sizing: border-box;
 }
-
+* {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: initial;
+}
 .title {
   text-align: center;
   padding: 40px 0;

@@ -8,5 +8,12 @@ export const actions = {
     } catch (e) {
       commit('setStatus', e, { root: true })
     }
+  },
+  async create({ commit }, payload) {
+    try {
+      await this.$axios.$post('/api/admin/create', payload)
+    } catch (e) {
+      commit('setStatus', e, { root: true })
+    }
   }
 }

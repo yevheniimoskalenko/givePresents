@@ -32,7 +32,6 @@ f<template>
             ></el-table-column>
             <el-table-column prop="date" label="Дата"></el-table-column>
           </el-table>
-          {{ giveUser }}
         </el-row>
       </el-col>
     </el-row>
