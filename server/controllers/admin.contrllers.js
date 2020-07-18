@@ -44,3 +44,4 @@ module.exports.create = async (req, res) => {
   }
 }
 module.exports.user = (req, res, next) => res.json({ user: req.user })
+module.exports.logout = (req, res, next) => res.json({ status: 'OK' })

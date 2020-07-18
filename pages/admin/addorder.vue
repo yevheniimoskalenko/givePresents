@@ -4,7 +4,6 @@
       <h2>Створити приз</h2>
       <p>Товар для розіграшу призів, на сайті</p>
     </div>
-
     <el-row type="flex" justify="center">
       <el-col :span="12" :xs="24">
         <el-form ref="form" :model="form" :rules="rules">
@@ -44,6 +43,7 @@
             <el-button type="primary" round :loading="loading" @click="create"
               >Створити розіграш</el-button
             >
+            <el-button @click="logout">exit</el-button>
           </el-form-item>
         </el-form>
       </el-col>
@@ -52,6 +52,7 @@
 </template>
 <script>
 export default {
+  middleware: ['admin'],
   data() {
     return {
       loading: false,
@@ -105,6 +106,9 @@ export default {
     },
     beforeRemove(file, fileList) {
       return this.$confirm(`Cancel the transfert of ${file.name} ?`)
+    },
+    async logout() {
+      await this.$auth.logout()
     }
   },
   head: {

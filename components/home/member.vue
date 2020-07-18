@@ -9,13 +9,13 @@
         <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
           <div class="member__item">
             <h3>Учасників:</h3>
-            <span>{{ member.users }}</span>
+            <span>{{ members.member }}</span>
           </div>
         </el-col>
         <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
           <div class="member__item">
             <h3>Переможці:</h3>
-            <span>{{ member.winners }}</span>
+            <span>{{ members.winners }}</span>
           </div>
         </el-col>
       </el-row>
@@ -24,10 +24,15 @@
 </template>
 <script>
 export default {
+  props: {
+    members: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
       member: {
-        users: 1400,
         winners: 12
       }
     }

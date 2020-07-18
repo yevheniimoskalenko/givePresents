@@ -8,8 +8,7 @@ export const mutations = {
   },
   clearStatus(state) {
     state.status = null
-  },
-  trophyData(state, payload) {}
+  }
 }
 export const actions = {
   async fetchAll({ commit }) {

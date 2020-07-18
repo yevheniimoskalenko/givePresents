@@ -8,7 +8,7 @@
     </div>
     <div class="possibility__content">
       <el-row :gutter="40">
-        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
           <div class="possibility__item">
             <div class="image">
               <div class="img"></div>
@@ -19,7 +19,7 @@
             </div>
           </div>
         </el-col>
-        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
           <div class="possibility__item">
             <div class="image">
               <div class="img"></div>
@@ -30,7 +30,7 @@
             </div>
           </div>
         </el-col>
-        <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
           <div class="possibility__item">
             <div class="image">
               <div class="img"></div>
@@ -58,8 +58,9 @@
   }
 }
 
-.el-row {
+.possibility {
   display: flex;
+  flex-direction: column;
 }
 .possibility__item {
   text-align: center;

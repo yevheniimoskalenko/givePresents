@@ -10,8 +10,8 @@
         <el-col
           v-for="(review, index) in reviews"
           :key="index"
-          :xs="8"
-          :sm="8"
+          :xs="24"
+          :sm="24"
           :md="8"
           :lg="8"
           :xl="8"
@@ -53,8 +53,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.el-row {
+.reviews {
   display: flex;
+  flex-direction: column;
 }
 
 .reviews__item {

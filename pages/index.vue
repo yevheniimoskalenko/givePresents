@@ -2,7 +2,7 @@
   <div>
     <app-header />
     <app-possibility />
-    <app-member />
+    <app-member :members="members" />
     <app-trophy :orders="order" />
     <app-reviews :reviews="reviews" />
     <app-footer />
@@ -27,13 +27,28 @@ export default {
   },
   async asyncData({ store }) {
     const data = await store.dispatch('fetchAll')
-    return { order: data.order, reviews: data.reviews }
+    return { order: data.order, reviews: data.reviews, members: data.members }
   },
   data() {
     return {}
   },
-  head: {
-    title: 'Головна сторінка сайту'
+  head() {
+    return {
+      title: 'Головна сторінка сайту',
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'My custom description'
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'site.ua, best.site'
+        }
+      ]
+    }
   }
 }
 </script>

@@ -9,8 +9,8 @@
         <el-col
           v-for="(order, index) in orders"
           :key="index"
-          :xs="8"
-          :sm="8"
+          :xs="24"
+          :sm="24"
           :md="8"
           :lg="8"
           :xl="8"
@@ -64,10 +64,11 @@ export default {
   display: block;
   margin: 10px 0;
 }
-.el-row {
-  display: flex;
-}
 
+.trophy {
+  display: flex;
+  flex-direction: column;
+}
 .trophy__image {
   width: 100%;
   display: block;

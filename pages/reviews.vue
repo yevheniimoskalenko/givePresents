@@ -2,6 +2,7 @@
   <div class="reviews">
     <div class="title">
       <h2>Залишити відгук про сайт</h2>
+
       <p>
         Напишіть про користь сайту, для вас в нашому житті, або плюси які ви
         бачте.
@@ -10,10 +11,11 @@
     <div class="reviews__content">
       <el-row>
         <el-col>
-          <div v-if="$auth.$state.user === null" class="auth">
-            <el-tag type="warning">
-              Для того щоб залишити відгук потрібо авторизуватися через facebook
-            </el-tag>
+          <div v-if="$auth.$state.loggedIn !== true" class="auth">
+            <el-tag type="warning"
+              >Для того щоб залишити відгук потрібо авторизуватися через
+              facebook</el-tag
+            >
             <el-button
               type="primary"
               class="auth-btn"

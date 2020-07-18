@@ -80,9 +80,9 @@ module.exports = {
       }
     },
     redirect: {
-      login: '/auth/login',
-      logout: '/auth/login',
-      user: '/profile',
+      login: '/admin/auth',
+      logout: '/',
+      user: '/',
       callback: '/'
     }
   },
