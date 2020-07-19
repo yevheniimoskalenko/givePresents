@@ -3,7 +3,9 @@
 html {
   box-sizing: border-box;
 }
-* {
+*,
+body,
+html {
   font-family: "Montserrat", sans-serif;
   box-sizing: initial;
 }

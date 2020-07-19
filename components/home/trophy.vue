@@ -30,9 +30,13 @@
                   circle
                   @click="openTrophy(order._id)"
                 ></el-button>
-                <small>{{
-                  order.date | moment('dddd, MMMM Do YYYY, h:mm:ss a')
-                }}</small>
+
+                <small
+                  ><i class="el-icon-date"></i
+                  >{{
+                    order.date | moment('dddd, MMMM Do YYYY, h:mm:ss a')
+                  }}</small
+                >
               </div>
             </div>
           </el-card>
@@ -83,6 +87,10 @@ export default {
 .trophy_main {
   small {
     color: rgb(139, 137, 137);
+    font-size: 14px;
+    i {
+      padding: 10px;
+    }
   }
 }
 .tropty__item {

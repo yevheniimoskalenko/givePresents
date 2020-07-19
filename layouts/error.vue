@@ -13,6 +13,11 @@ export default {
       img:
         'https://res.cloudinary.com/dmrpkseez/image/upload/v1595172176/wbpgykfnyuwzxfl7jkyl.svg'
     }
+  },
+  head() {
+    return {
+      title: 'Not found'
+    }
   }
 }
 </script>
@@ -26,6 +31,9 @@ export default {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  p {
+    text-align: center;
+  }
 }
 .el-image {
   display: flex;

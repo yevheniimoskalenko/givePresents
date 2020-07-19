@@ -87,6 +87,7 @@ export default {
     font-style: italic;
     line-height: 20px;
     height: 40px;
+    overflow: hidden;
   }
 }
 .addReviews {

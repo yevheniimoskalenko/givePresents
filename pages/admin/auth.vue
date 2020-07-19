@@ -22,6 +22,7 @@
 </template>
 <script>
 export default {
+  middleware: 'auth',
   layout: 'emit',
   data() {
     return {
@@ -61,6 +62,9 @@ export default {
         }
       })
     }
+  },
+  head: {
+    title: 'Вхід в адмін панель'
   }
 }
 </script>

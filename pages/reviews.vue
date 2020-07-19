@@ -11,7 +11,13 @@
     <div class="reviews__content">
       <el-row>
         <el-col>
-          <div v-if="$auth.$state.loggedIn !== true" class="auth">
+          <div
+            v-if="
+              $store.state.auth.strategy !== 'facebook' &&
+                $store.state.auth.loggedIn === true
+            "
+            class="auth"
+          >
             <el-tag type="warning"
               >Для того щоб залишити відгук потрібо авторизуватися через
               facebook</el-tag
