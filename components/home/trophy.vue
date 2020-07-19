@@ -60,6 +60,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.el-col {
+  padding-bottom: 20px;
+}
 .link {
   display: block;
   margin: 10px 0;

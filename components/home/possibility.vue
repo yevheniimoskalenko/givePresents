@@ -2,13 +2,11 @@
   <div class="possibility">
     <div class="title">
       <h2>Можливости проекту</h2>
-      <p>
-        Перерахована маленька доля проекту в якому ви можете взяти участь
-      </p>
+      <p>Перерахована маленька доля проекту в якому ви можете взяти участь</p>
     </div>
     <div class="possibility__content">
       <el-row :gutter="40">
-        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+        <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
           <div class="possibility__item">
             <div class="image">
               <div class="img"></div>
@@ -19,7 +17,7 @@
             </div>
           </div>
         </el-col>
-        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+        <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
           <div class="possibility__item">
             <div class="image">
               <div class="img"></div>
@@ -30,7 +28,7 @@
             </div>
           </div>
         </el-col>
-        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+        <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
           <div class="possibility__item">
             <div class="image">
               <div class="img"></div>
@@ -57,7 +55,9 @@
     background: rgb(238, 237, 237);
   }
 }
-
+.el-col {
+  padding-bottom: 20px;
+}
 .possibility {
   display: flex;
   flex-direction: column;

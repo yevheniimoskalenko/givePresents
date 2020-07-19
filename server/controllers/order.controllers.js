@@ -6,12 +6,14 @@ const Pay = require('../model/pay.model')
 const list = require('./module/tickets')
 require('dotenv').config()
 module.exports.create = async (req, res) => {
-  const { title, description, tickets, uload } = req.body
+  const { title, description, tickets, uload, keywords, aboutPage } = req.body
   const order = new Order({
     title,
     description,
     countTickets: tickets,
-    urlImages: uload
+    urlImages: uload,
+    keywords,
+    aboutPage
   })
   await order.save()
   await Tickets.insertMany(list(order.countTickets, order._id))

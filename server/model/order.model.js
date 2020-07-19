@@ -22,6 +22,14 @@ const order = new Schema(
       type: Boolean,
       default: true
     },
+    keywords: {
+      type: Array,
+      required: true
+    },
+    aboutPage: {
+      type: String,
+      required: true
+    },
     date: {
       type: Date,
       default: Date.now

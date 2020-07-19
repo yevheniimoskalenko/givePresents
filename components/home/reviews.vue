@@ -53,6 +53,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.el-col {
+  padding-bottom: 20px;
+}
 .reviews {
   display: flex;
   flex-direction: column;
