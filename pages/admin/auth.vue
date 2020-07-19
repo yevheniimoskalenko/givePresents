@@ -1,29 +1,41 @@
 <template>
   <div class="auth">
-    <div class="auth-form">
+    <div class="logo-site">
+      <img src="~assets/laptop-with-slack-by-oblik-studio.png" />
+    </div>
+    <el-card class="auth-form">
+      <h2>Вхід в адмін панель</h2>
       <el-form ref="form" :model="controlers" :rules="rules">
-        <el-form-item prop="email" label="email">
+        <el-form-item prop="email" label="Електрона пошта">
           <el-input v-model="controlers.email"></el-input>
         </el-form-item>
-        <el-form-item prop="password" label="password">
+        <el-form-item prop="password" label="Пароль">
           <el-input v-model="controlers.password" type="password"></el-input>
         </el-form-item>
-        <el-button type="primary" round @click="auth">login</el-button>
+        <el-button type="primary" round :loading="loading" @click="auth"
+          >Увійти</el-button
+        >
+        <nuxt-link to="/">На головну</nuxt-link>
       </el-form>
-    </div>
+    </el-card>
   </div>
 </template>
 <script>
 export default {
+  layout: 'emit',
   data() {
     return {
+      loading: false,
       controlers: {
         email: '',
         password: ''
       },
       rules: {
-        email: [{ required: true }, { type: 'email' }],
-        password: [{ required: true }]
+        email: [
+          { required: true, message: 'Електрона пошта повина бути заповнена' },
+          { type: 'email', message: 'Уведіть коректно пошту' }
+        ],
+        password: [{ required: true, message: 'Будь ласка заповніть пароль' }]
       }
     }
   },
@@ -31,6 +43,7 @@ export default {
     auth() {
       this.$refs.form.validate(async (valid) => {
         if (valid) {
+          this.loading = true
           try {
             const formData = {
               email: this.controlers.email,
@@ -42,6 +55,8 @@ export default {
             console.log(response)
           } catch (e) {
             console.log(e)
+          } finally {
+            this.loading = false
           }
         }
       })
@@ -55,10 +70,18 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .auth-form {
-  background: #ebebeb;
-  padding: 20px;
-  border-radius: 5px;
+  h2 {
+    font-weight: 500;
+    text-align: center;
+  }
+}
+.logo-site {
+  margin-bottom: 20px;
+  img {
+    width: 100px;
+  }
 }
 </style>
