@@ -72,7 +72,6 @@
             <el-button type="primary" round :loading="loading" @click="create"
               >Створити розіграш</el-button
             >
-            <el-button @click="logout">exit</el-button>
           </el-form-item>
         </el-form>
       </el-col>
@@ -160,9 +159,6 @@ export default {
     },
     beforeRemove(file, fileList) {
       return this.$confirm(`Cancel the transfert of ${file.name} ?`)
-    },
-    async logout() {
-      await this.$auth.logout()
     }
   },
   head: {
