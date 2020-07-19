@@ -1,7 +1,7 @@
 <template>
   <div class="possibility">
     <div class="title">
-      <h2>Можливости проекту</h2>
+      <h2>Можливості проекту</h2>
       <p>Перерахована маленька доля проекту в якому ви можете взяти участь</p>
     </div>
     <div class="possibility__content">
@@ -64,5 +64,14 @@
 }
 .possibility__item {
   text-align: center;
+}
+.possibility__main {
+  h3 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  p {
+    line-height: 20px;
+  }
 }
 </style>

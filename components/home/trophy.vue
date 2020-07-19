@@ -64,6 +64,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.el-image {
+  display: flex;
+  justify-content: center;
+}
 .el-col {
   padding-bottom: 20px;
 }

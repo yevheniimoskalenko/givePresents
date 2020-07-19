@@ -9,7 +9,7 @@
         В мене є до тебе подарунок, для того щоб його забрати ти повинен вибрати
         квиток і заплатити за нього!
       </p>
-      <el-button type="primary" round>Розпочнемо</el-button>
+      <el-button type="primary" class="btn" round>Розпочнемо</el-button>
     </div>
   </header>
 </template>
@@ -22,6 +22,9 @@
   align-items: center;
   text-align: center;
 }
+.btn {
+  margin-top: 10px;
+}
 .header___content {
   h1 {
     font-size: 42px;
@@ -29,12 +32,14 @@
   }
   p {
     color: rgb(105, 98, 98);
+    line-height: 30px;
   }
 }
 .image {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
   .img {
     width: 150px;
     height: 150px;
