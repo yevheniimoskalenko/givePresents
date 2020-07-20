@@ -9,7 +9,13 @@
         В мене є до тебе подарунок, для того щоб його забрати ти повинен вибрати
         квиток і заплатити за нього!
       </p>
-      <el-button type="primary" class="btn" round>Розпочнемо</el-button>
+      <el-button
+        v-scroll-to="{ el: '#anchor' }"
+        type="primary"
+        icon="el-icon-bottom"
+        class="btn"
+        circle
+      ></el-button>
     </div>
   </header>
 </template>

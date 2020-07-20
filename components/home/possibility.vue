@@ -1,5 +1,5 @@
 <template>
-  <div class="possibility">
+  <div id="anchor" class="possibility">
     <div class="title">
       <h2>Можливості проекту</h2>
       <p>Перерахована маленька доля проекту в якому ви можете взяти участь</p>
