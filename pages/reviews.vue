@@ -13,8 +13,8 @@
         <el-col>
           <div
             v-if="
-              $store.state.auth.strategy !== 'facebook' &&
-                $store.state.auth.loggedIn === true
+              $store.state.auth.strategy !== 'facebook' ||
+                $store.state.auth.loggedIn === false
             "
             class="auth"
           >

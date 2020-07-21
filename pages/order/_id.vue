@@ -223,7 +223,19 @@ export default {
   },
   head() {
     return {
-      title: 'Подарунок'
+      title: 'Подарунок',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.presents.aboutPage}`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `${this.presents.keywords.map((elem) => elem)}`
+        }
+      ]
     }
   }
 }

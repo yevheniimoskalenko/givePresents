@@ -22,6 +22,14 @@ module.exports = {
     'nuxt/no-cjs-in-config': 'off',
     'no-console': 'off',
     'no-const-assign': 'off',
-    'vue/no-v-html': 'off'
+    'vue/no-v-html': 'off',
+    "import/order": ["off", {
+      "pathGroups": [
+        {
+          "pattern": "~/**",
+          "group": "external"
+        }
+      ]
+    }]
   }
 }

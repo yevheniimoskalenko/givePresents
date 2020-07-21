@@ -40,7 +40,12 @@
             </el-upload>
           </el-form-item>
           <el-form-item label="Опис сторінки для розіграшу" prop="about">
-            <el-input v-model="form.aboutPage" type="textarea"></el-input>
+            <el-input
+              v-model="form.about"
+              type="textarea"
+              maxlength="150"
+              show-word-limit
+            ></el-input>
           </el-form-item>
           <el-form-item label="Ключові слова сторінки">
             <el-tag

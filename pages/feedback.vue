@@ -1,13 +1,17 @@
 <template>
   <div class="feedback">
+    <div class="title">
+      <h2>Зворотній зв'язок</h2>
+      <p>Залишити повідомлення, або повідомити про помилку</p>
+    </div>
     <el-form ref="form" :model="controlers" :rules="rules">
       <el-row :gutter="20">
-        <el-col :span="12">
+        <el-col :span="12" :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
           <el-form-item label="Електроний адрес" prop="email">
             <el-input v-model="controlers.email" placeholder=""></el-input>
           </el-form-item>
         </el-col>
-        <el-col :span="12">
+        <el-col :span="12" :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
           <el-form-item label="Ваше ім'я" prop="name">
             <el-input v-model="controlers.name" placeholder=""></el-input>
           </el-form-item>

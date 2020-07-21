@@ -10,7 +10,6 @@
         квиток і заплатити за нього!
       </p>
       <el-button
-        v-scroll-to="{ el: '#anchor' }"
         type="primary"
         icon="el-icon-bottom"
         class="btn"

@@ -39,7 +39,11 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/element-ui', '~plugins/moment.js'],
+  plugins: [
+    '@/plugins/element-ui',
+    '~plugins/moment.js'
+    // { src: '@/plugins/socket', ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
