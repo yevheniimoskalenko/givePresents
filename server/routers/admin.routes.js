@@ -6,11 +6,13 @@ const {
   auth,
   create,
   user,
-  logout
+  logout,
+  feedback
 } = require('../controllers/admin.contrllers')
 router.post('/create', create)
 router.post('/auth', auth)
 router.post('/logout', logout)
+router.post('/feedback', feedback)
 router.get('/user', jwt({ secret: process.env.jwtsecret }), user)
 
 module.exports = router

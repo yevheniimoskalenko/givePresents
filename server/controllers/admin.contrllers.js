@@ -1,6 +1,7 @@
 const jsonwebtoken = require('jsonwebtoken')
 const bcrypt = require('bcrypt-nodejs')
 const User = require('../model/user.model')
+const Feedback = require('../model/feedback.model')
 const salt = bcrypt.genSaltSync(10)
 module.exports.auth = async (req, res) => {
   const { email, password } = req.body
@@ -41,6 +42,22 @@ module.exports.create = async (req, res) => {
     })
     await user.save()
     return res.status(201).json(user)
+  }
+}
+module.exports.feedback = async (req, res) => {
+  try {
+    const { name, email, messages, status } = req.body
+
+    const candidat = new Feedback({
+      name,
+      email,
+      messages,
+      status
+    })
+    await candidat.save()
+    return res.json(candidat)
+  } catch (e) {
+    return res.json(e)
   }
 }
 module.exports.user = (req, res, next) => res.json({ user: req.user })

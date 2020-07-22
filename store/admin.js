@@ -15,5 +15,12 @@ export const actions = {
     } catch (e) {
       commit('setStatus', e, { root: true })
     }
+  },
+  async feedback({ commit }, payload) {
+    try {
+      await this.$axios.$post('/api/admin/feedback', payload)
+    } catch (e) {
+      commit('setStatus', e, { root: true })
+    }
   }
 }
